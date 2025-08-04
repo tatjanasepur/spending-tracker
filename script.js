@@ -1,52 +1,55 @@
+const form = document.getElementById('expense-form');
+const descInput = document.getElementById('desc');
+const amountInput = document.getElementById('amount');
+const categorySelect = document.getElementById('category');
+const expenseList = document.getElementById('expense-list');
+const summaryList = document.getElementById('summary-list');
+
 let expenses = JSON.parse(localStorage.getItem('expenses')) || [];
 
-const form = document.getElementById('expense-form');
-const list = document.getElementById('expense-list');
-const chartCanvas = document.getElementById('expense-chart');
+function saveExpenses() {
+  localStorage.setItem('expenses', JSON.stringify(expenses));
+}
+
+function renderExpenses() {
+  expenseList.innerHTML = '';
+  expenses.forEach((exp, i) => {
+    const li = document.createElement('li');
+    li.textContent = `${exp.description} - ${exp.amount.toFixed(2)} RSD (${exp.category})`;
+    expenseList.appendChild(li);
+  });
+}
+
+function renderSummary() {
+  const totals = {};
+  expenses.forEach(exp => {
+    totals[exp.category] = (totals[exp.category] || 0) + exp.amount;
+  });
+  summaryList.innerHTML = '';
+  for (const cat in totals) {
+    const li = document.createElement('li');
+    li.textContent = `${cat}: ${totals[cat].toFixed(2)} RSD`;
+    summaryList.appendChild(li);
+  }
+}
 
 form.addEventListener('submit', e => {
   e.preventDefault();
-  const desc = document.getElementById('desc').value;
-  const amount = parseFloat(document.getElementById('amount').value);
-  const category = document.getElementById('category').value;
+  const desc = descInput.value.trim();
+  const amount = parseFloat(amountInput.value);
+  const category = categorySelect.value;
 
-  expenses.push({ desc, amount, category });
-  localStorage.setItem('expenses', JSON.stringify(expenses));
-  form.reset();
-  renderList();
-  renderChart();
+  if (!desc || isNaN(amount) || amount <= 0) return;
+
+  expenses.push({ description: desc, amount, category });
+  saveExpenses();
+  renderExpenses();
+  renderSummary();
+
+  descInput.value = '';
+  amountInput.value = '';
+  categorySelect.value = 'Food';
 });
 
-function renderList() {
-  list.innerHTML = '';
-  expenses.forEach((e, i) => {
-    const li = document.createElement('li');
-    li.textContent = `${e.desc} - ${e.amount.toFixed(2)} RSD (${e.category})`;
-    list.appendChild(li);
-  });
-}
-
-function renderChart() {
-  const categorySums = {};
-  expenses.forEach(e => {
-    categorySums[e.category] = (categorySums[e.category] || 0) + e.amount;
-  });
-
-  const data = {
-    labels: Object.keys(categorySums),
-    datasets: [{
-      data: Object.values(categorySums),
-      backgroundColor: ['#ffc9d0', '#e6a6af', '#c997a0', '#b76e79']
-    }]
-  };
-
-  if (window.expenseChart) window.expenseChart.destroy();
-
-  window.expenseChart = new Chart(chartCanvas, {
-    type: 'pie',
-    data
-  });
-}
-
-renderList();
-renderChart();
+renderExpenses();
+renderSummary();
