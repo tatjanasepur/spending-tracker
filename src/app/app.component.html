@@ -1,0 +1,20 @@
+<h2>📊 Troškovi po kategorijama</h2>
+<select [(ngModel)]="selectedCategory">
+<option value="">Izaberi kategoriju</option>
+<option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
+</select>
+<input type="number" [(ngModel)]="amount" placeholder="Unesi iznos">
+<button (click)="addExpense()">Dodaj trošak</button>
+<hr>
+<div *ngIf="getTotal() > 0">
+<h3>📈 Dijagram potrošnje</h3>
+<div *ngFor="let cat of categories">
+<div *ngIf="expenses[cat]">
+     {{ cat }}: {{ expenses[cat] | number:'1.2-2' }} RSD
+<div style="background: lightblue; height: 20px; margin-bottom: 10px;"
+          [style.width.%]="(expenses[cat] / getTotal()) * 100">
+</div>
+</div>
+</div>
+<h4>🤑 Najviše si potrošila na: <strong>{{ getMaxCategory() }}</strong></h4>
+</div>
