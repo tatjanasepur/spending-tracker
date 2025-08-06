@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # SpendingTracker
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.4.
@@ -57,3 +58,15 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+=======
+# Spending Tracker
+
+A simple browser-based app to track your spending by categories (food, gas, fun, hygiene...).
+
+Built with:
+- HTML/CSS/JavaScript
+- Chart.js
+- LocalStorage
+
+Ideal as a mini bank tool or internal dashboard simulation.
+>>>>>>> 0d6c4e419b04bfe15accf11a0a8a1b7a381427b6
