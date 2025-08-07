@@ -2,7 +2,7 @@
 
 Ova aplikacija služi za praćenje ličnih troškova po kategorijama (hrana, gorivo, zabava itd). Napravljena je kao portfolio projekat sa ciljem demonstracije veština u frontend programiranju koristeći **Angular**, **HTML/CSS**, i **JavaScript**.
 
-## 🚀 Tehnologije
+## Tehnologije
 
 - Angular
 - TypeScript
@@ -26,7 +26,7 @@ Ova aplikacija služi za praćenje ličnih troškova po kategorijama (hrana, gor
 - Kategorizacija troškova
 - Pregled ukupnih mesečnih iznosa
 
-## 🌍 Demo
+##  Demo
 
 Projekat je hostovan na GitHub Pages:  
 🔗 (https://tatjanasepur.github.io/spending-tracker/)
