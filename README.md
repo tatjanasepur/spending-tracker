@@ -1,4 +1,4 @@
-# 💸 Spending Tracker – Angular Web App
+# Spending Tracker – Angular Web App
 
 Ova aplikacija služi za praćenje ličnih troškova po kategorijama (hrana, gorivo, zabava itd). Napravljena je kao portfolio projekat sa ciljem demonstracije veština u frontend programiranju koristeći **Angular**, **HTML/CSS**, i **JavaScript**.
 
@@ -11,7 +11,7 @@ Ova aplikacija služi za praćenje ličnih troškova po kategorijama (hrana, gor
 - JavaScript
 - Git & GitHub
 
-## 📁 Struktura projekta
+## Struktura projekta
 
 - `src/` – Angular izvorni kod
 - `public/` – statički fajlovi
@@ -19,7 +19,7 @@ Ova aplikacija služi za praćenje ličnih troškova po kategorijama (hrana, gor
 - `index.html`, `script.js`, `style.css` – ulazne stranice za aplikaciju
 - `angular.json`, `package.json` – konfiguracija projekta
 
-## ✅ Funkcionalnosti
+## Funkcionalnosti
 
 - Dodavanje i brisanje troškova
 - Prikaz svih unosa u tabeli
