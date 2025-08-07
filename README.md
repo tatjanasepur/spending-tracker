@@ -31,7 +31,7 @@ Ova aplikacija služi za praćenje ličnih troškova po kategorijama (hrana, gor
 Projekat je hostovan na GitHub Pages:  
 🔗 (https://tatjanasepur.github.io/spending-tracker/)
 
-## 📦 Pokretanje lokalno
+##  Pokretanje lokalno
 
 ```bash
 npm install
